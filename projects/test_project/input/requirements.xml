@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Aircraft Requirements-->
+<Requirements>
+	<Range Value="3900" Unit="km"/>
+	<Payload_mass Value="18143" Unit="kg"/>
+	<Cruise_mach_number Value="0.7" Unit="-"/>
+	<Cruise_altitude Value="10668" Unit="m"/>
+	<Ultimate_load_factor Value="3.75" Unit="-"/>
+	<Loading_envelope>
+		<Front_CG_limit Value="0.2" Unit="%MAC"/>
+		<Aft_CG_limit Value="-0.4" Unit="%MAC"/>
+	</Loading_envelope>
+</Requirements>

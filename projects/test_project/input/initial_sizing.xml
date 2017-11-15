@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Initital Sizing Input-->
+<Initital_sizing>
+	<Ref_area Value="157.9" Unit="m^2"/>
+	<Thrust Value="62.3" Unit="kN"/>
+	<SFC Value="83" Unit="(kg/h)/kN"/>
+	<Maximum_take_off_mass Value="83460" Unit="kg"/>
+	<Operating_empty_mass Value="44270" Unit="kg"/>
+	<Fuel_mass Value="21047" Unit="kg"/>
+	<Weight_groups>
+		<Item Name="LG" Mass="3721" CG_x="20"/>
+		<Item Name="Surf_ctrl" Mass="1359" CG_x="20"/>
+		<Item Name="Naccele" Mass="1753" CG_x="35"/>
+		<Item Name="Prop" Mass="5787" CG_x="35"/>
+		<Item Name="Sys" Mass="8294" CG_x="20"/>
+		<Item Name="Rest" Mass="2554" CG_x="20"/>
+	</Weight_groups>
+</Initital_sizing>

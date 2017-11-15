@@ -1,0 +1,37 @@
+void DumpErrorsAndExit( int errcount )
+{
+	errcount += GetNumTotalErrors();
+
+	//==== Check For API Errors ====//
+	while ( GetNumTotalErrors() > 0 )
+	{
+		ErrorObj err = PopLastError();
+		Print( err.GetErrorString() );
+	}
+}
+
+// Script to execute CompGeom and export Cart3D tri file
+void main()
+{
+	// Variables
+	string file_name = "$file_name";
+	string out_file_name = "$out_file_name";
+
+	// Report exporting tri file
+	Print( string( "Start exporting tri file:" ) );
+	Print( string( file_name ) );
+
+	// Open model
+	ReadVSPFile( file_name );
+
+	ComputeCompGeom( 0, false, NO_FILE_TYPE );
+	ExportFile( out_file_name, 0, EXPORT_CART3D );
+
+	Print( string( "Export tri file success." ) );
+	Print( string( "File saved in directory of vsp3 file as" ) );
+	Print( string( out_file_name ) );
+	
+	// Show errors
+	int errcount = 0;
+	DumpErrorsAndExit( errcount );
+}

@@ -1,0 +1,47 @@
+
+void DumpErrorsAndExit( int errcount )
+{
+	errcount += GetNumTotalErrors();
+
+	//==== Check For API Errors ====//
+	while ( GetNumTotalErrors() > 0 )
+	{
+		ErrorObj err = PopLastError();
+		Print( err.GetErrorString() );
+	}
+}
+
+void main()
+{
+	// Variables
+	string file_name = "$file_name";
+	string out_file_name = "$out_file_name";
+	
+	// Show that compute degen geom is running
+	Print( string( "Start changing model:" ) );
+	Print( string( file_name ) );
+
+	// Open model
+	ReadVSPFile( file_name );
+	
+	// Remove Fuselage from model
+	array<string> fus_ids = FindGeomsWithName( "Fuselage" );
+	for(int i = 0; i < int( fus_ids.size() ); ++i){
+		DeleteGeom( fus_ids[i] );
+	}
+	
+	// Remove VT from model
+	array<string> vt_ids = FindGeomsWithName( "VT" );
+	for(int i = 0; i < int( vt_ids.size() ); ++i){
+		DeleteGeom( vt_ids[i] );
+	}
+		
+	WriteVSPFile( out_file_name, SET_ALL );
+
+	Print( string( "Model changed and saved successfully as:" ) );
+	Print( string( out_file_name ) );
+	
+	// Show errors
+	int errcount = 0;
+	DumpErrorsAndExit( errcount );
+}

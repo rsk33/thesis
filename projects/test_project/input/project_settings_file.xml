@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Project Settings File-->
+<Project_settings>
+	<Variable Geom_name="MainWing" Group_name="XSec_1" Param_name="Aspect" Min_value="3.75" Max_value="3.75" Delta="0.5"/>
+	<Criterion Parameter="Range" Unit="km"/>
+	<Analysis_configuration>
+		<!--(vsp) options available-->
+		<Wet_area Method="vsp"/>
+		<!--(torenbeek_2) options available-->
+		<Weight Method="torenbeek_2"/>
+		<Drag>
+			<!--(drag_build_up_raymer) options available-->
+			<Zero_lift Method="drag_build_up_raymer"/>
+			<!--(douglas / vsp_aero_vlm / vsp_aero_panel) options available-->
+			<Lift_induced Method="douglas"/>
+		</Drag>
+		<!--(vsp / none) options available-->
+		<Trim Method="none" Max_AoA="15"/>
+		<!--(vsp / none) options available-->
+		<Static_stability Method="none" Margin="0.075"/>
+	</Analysis_configuration>
+</Project_settings>

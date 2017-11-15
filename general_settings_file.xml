@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--General Settings File-->
+<General_settings>
+	<Project_name Value="test_project"/>
+	<OpenVSP>
+		<Path>
+			<Item Value="D:\Roman Skybinskyi\OpenVSP-3.11.0-win32\"/>
+			<Item Value="C:\Users\Roman\Desktop\OpenVSP-3.13.2-win32\"/>
+		</Path>
+		<VSPAero>
+			<Threads Number="4"/>
+			<Wakes Number="3"/>
+			<Mach Number="0.5"/>
+		</VSPAero>
+	</OpenVSP>
+</General_settings>

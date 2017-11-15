@@ -1,0 +1,54 @@
+void DumpErrorsAndExit( int errcount )
+{
+	errcount += GetNumTotalErrors();
+
+	//==== Check For API Errors ====//
+	while ( GetNumTotalErrors() > 0 )
+	{
+		ErrorObj err = PopLastError();
+		Print( err.GetErrorString() );
+	}
+}
+
+void main()
+{
+	// Variables
+	string file_name = "$file_name";
+	string comp_name = "$comp_name";
+	string group_name = "$group_name";
+	string param_name = "$param_name";
+	double value = $value;
+
+	// Show what components is updated
+	Print( string( "Start model update" ) );
+	Print( string( comp_name ) );
+
+	// Open model
+	ReadVSPFile( file_name );
+
+	// Find geometry by name
+	array<string> geoms = FindGeomsWithName( comp_name );
+
+	// Update parameters
+	for(int i=0; i < int( geoms.size() ); ++i)
+	{
+		// Change value
+		SetParmVal( geoms[i], param_name, group_name, value );
+		Print( string( param_name ) );
+		Print( double( value ) );
+	}
+
+	// Update geometry
+	Update();
+
+	// Save the model
+	WriteVSPFile( file_name, SET_SHOWN );
+	Print( string( "updated model saved as:" ) );
+	Print( string( file_name ) );
+
+	Print( string( "Finish model update" ) );
+	
+	// Show errors
+	int errcount = 0;
+	DumpErrorsAndExit( errcount );
+}

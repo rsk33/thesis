@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Design Input-->
+<Design>
+	<Main_wing>
+		<Flaps>
+			<!--(Slotted / Plain) options available-->
+			<Type Value="Slotted"/>
+			<Flap_chord Value="0.3" Unit="-"/>
+			<Start_span Value="0.2" Unit="-"/>
+			<End_span Value="0.6" Unit="-"/>
+		</Flaps>
+	</Main_wing>
+	<Horizontal_stabilizer>
+		<Elevator>
+			<!--(Slotted / Plain) options available-->
+			<Type Value="Plain"/>
+			<Sealed_gap Value="0"/>
+			<Flap_chord Value="0.3" Unit="-"/>
+			<Start_span Value="0" Unit="-"/>
+			<End_span Value="1" Unit="-"/>
+			<Deflection_angle Value="-25" Unit="DEG"/>
+		</Elevator>
+	</Horizontal_stabilizer>
+</Design>

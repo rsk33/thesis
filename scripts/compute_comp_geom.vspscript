@@ -1,0 +1,33 @@
+void DumpErrorsAndExit( int errcount )
+{
+	errcount += GetNumTotalErrors();
+
+	//==== Check For API Errors ====//
+	while ( GetNumTotalErrors() > 0 )
+	{
+		ErrorObj err = PopLastError();
+		Print( err.GetErrorString() );
+	}
+}
+
+void main()
+{
+	// Variables
+	string file_name = "$file_name";
+
+	// Show that compute comp geom is running
+	Print( string( "Start computing comp geom of file:" ) );
+	Print( string( file_name ) );
+
+	// Open model
+	ReadVSPFile( file_name );
+
+	ComputeCompGeom( SET_ALL, false, COMP_GEOM_CSV_TYPE );
+
+	Print( string( "Comp geom computed successfully." ) );
+	Print( string( "Results saved in directory of vsp3 file." ) );
+	
+	// Show errors
+	int errcount = 0;
+	DumpErrorsAndExit( errcount );
+}
